@@ -1,17 +1,60 @@
-import { Container, Box } from "@chakra-ui/react";
+import { Moon, Sun } from "lucide-react";
+import { Button } from "./components/ui/button";
+import Navbar from "./components/ui/navbar";
+import { ThemeProvider } from "./lib/theme_provider";
+import { useState } from "react";
+import { motion } from "framer-motion";
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(true);
+
+  const toggleTheme = () => {
+    const newIsDarkMode = !isDarkMode;
+    setIsDarkMode(newIsDarkMode);
+
+    if (newIsDarkMode) {
+      document.documentElement.classList.add("dark");
+      document.documentElement.classList.remove("light");
+    }
+    if (!newIsDarkMode) {
+      document.documentElement.classList.add("light");
+      document.documentElement.classList.remove("dark");
+    }
+  };
+
   return (
-    <>
-      <Container>
-        <Box borderRadius="lg" bg="red" m="5" p="2">
-          Oi! Sou o Gabriel, formado em Desenvolvimento de Sistemas na ETEC de
-          Sapopemba. Sou apaixonado por Sistemas baseados em Unix e
-          desenvolvimento de software.
-        </Box>
-      </Container>
-    </>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <Navbar />
+
+      <div className="h-80"></div>
+
+      <div className="flex flex-col justify-center h-full text-left lg:w-2/6 mx-auto gap-4 px-5">
+        <p className="border border-muted rounded-sm p-3 w-auto font-medium text-md text-center">
+          Olá, sou dev Fullstack e moro em São Paulo.
+        </p>
+
+        <h1 className="text-4xl font-semibold tracking-wide font-[Spectral]">
+          Gabriel Nunes
+        </h1>
+      </div>
+
+      <Button
+        variant="outline"
+        className="fixed bottom-4 mx-4 my-2 rounded-3xl w-10 h-10"
+        onClick={toggleTheme}
+      >
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8, rotate: isDarkMode ? 45 : -45 }}
+          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          exit={{ opacity: 0, scale: 0.8 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+        >
+          {isDarkMode ? <Moon /> : <Sun />}
+        </motion.div>
+      </Button>
+    </ThemeProvider>
   );
 }
 
 export default App;
+
