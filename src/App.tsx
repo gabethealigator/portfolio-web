@@ -4,6 +4,7 @@ import Navbar from "./components/ui/navbar";
 import { ThemeProvider } from "./lib/theme_provider";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Avatar, AvatarImage, AvatarFallback } from "./components/ui/avatar";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -28,14 +29,28 @@ function App() {
 
       <div className="h-80"></div>
 
-      <div className="flex flex-col justify-center h-full text-left lg:w-2/6 mx-auto gap-4 px-5">
-        <p className="border border-muted rounded-sm p-3 w-auto font-medium text-md text-center">
+      <div className="flex flex-col justify-center h-full text-left lg:w-2/6 mx-auto px-5">
+        <p className="border border-muted rounded-sm p-3 w-auto font-medium text-md text-center mb-10">
           Olá, sou dev Fullstack e moro em São Paulo.
         </p>
 
-        <h1 className="text-4xl font-semibold tracking-wide font-[Spectral]">
-          Gabriel Nunes
-        </h1>
+        <div className="flex items-center justify-between lg:flex-row flex-col-reverse">
+          <div className="lg:w-2/3">
+            <h1 className="text-4xl font-semibold tracking-wide font-[Spectral]">
+              Gabriel Nunes
+            </h1>
+            <p>
+              Artesão Digital ( Programador / Inovador / Solucionador )
+            </p>
+          </div>
+
+          <div className="">
+            <Avatar className="w-28 h-28 border border-muted">
+              <AvatarImage src="https://avatars.githubusercontent.com/u/140721470?v=4" />
+              <AvatarFallback>CN</AvatarFallback>
+            </Avatar>
+          </div>
+        </div>
       </div>
 
       <Button
