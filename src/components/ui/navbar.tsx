@@ -1,11 +1,11 @@
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import Logo from "./logo";
-import { Menu } from "lucide-react";
+import { FiMenu } from "react-icons/fi";
 
 export default function Navbar() {
   return (
-    <header className="flex h-20 w-full shrink-0 items-center justify-center px-4">
+    <header className="flex h-20 w-full shrink-0 items-center justify-center px-3 fixed">
       <div className="flex justify-between w-full max-w-screen-xl items-center">
         {/* Logo */}
         <div className="lg:flex filter-none dark:filter invert">
@@ -16,7 +16,7 @@ export default function Navbar() {
         <Sheet>
           <SheetTrigger asChild>
             <Button variant="outline" size="icon" className="lg:hidden ml-auto">
-              <Menu />
+              <FiMenu />
               <span className="sr-only">Toggle navigation menu</span>
             </Button>
           </SheetTrigger>
