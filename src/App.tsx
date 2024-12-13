@@ -5,6 +5,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Avatar, AvatarImage, AvatarFallback } from "./components/ui/avatar";
 import { FiGithub, FiLinkedin, FiMoon, FiSun } from "react-icons/fi";
+import { FaPaperPlane } from "react-icons/fa";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -26,9 +27,9 @@ function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <Navbar />
-      <div className="h-80"></div>
+      <div className="h-64"></div>
 
-      <div className="flex flex-col justify-center h-full text-left lg:w-2/6 mx-auto px-3">
+      <div className="flex flex-col justify-center h-full text-left lg:w-2/6 mx-auto px-7">
         <div className="flex gap-3">
           <Button variant="outline" size="icon">
             <FiLinkedin/>
@@ -36,9 +37,12 @@ function App() {
           <Button variant="outline" size="icon">
             <FiGithub/>
           </Button>
+          <Button variant="outline">
+            Contato <FaPaperPlane/>
+          </Button>
         </div>
 
-        <p className="border border-muted rounded-sm p-3 w-auto font-medium text-md text-center mb-10 mt-2">
+        <p className="border border-muted rounded-sm p-2 w-auto font-medium text-md text-center mb-6 mt-2">
           Olá, sou dev Fullstack e moro em São Paulo.
         </p>
 
@@ -47,7 +51,7 @@ function App() {
             <h1 className="text-4xl font-semibold tracking-wide font-[Spectral]">
               Gabriel Nunes
             </h1>
-            <p className="text-sm">
+            <p className="text-sm tracking-wide">
               Artesão Digital ( Programador / Inovador / Solucionador )
             </p>
           </div>
@@ -68,6 +72,9 @@ function App() {
           <p className="text-justify mt-5">
             Olá! Meu nome é Gabriel Nunes, sou um desenvolvedor Fullstack de São Paulo, apaixonado por tecnologia e inovação. Atualmente, estou finalizando o curso de Desenvolvimento de Sistemas na ETEC de Sapopemba e já acumulo experiências com diversas ferramentas e linguagens.
           </p>
+        </div>
+
+        <div className="flex justify-center mt-5">
         </div>
       </div>
 

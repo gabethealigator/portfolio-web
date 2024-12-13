@@ -5,7 +5,7 @@ import { FiMenu } from "react-icons/fi";
 
 export default function Navbar() {
   return (
-    <header className="flex h-20 w-full shrink-0 items-center justify-center px-3 fixed">
+    <header className="flex h-14 w-full shrink-0 items-center justify-center px-3 fixed backdrop-blur drop-shadow-sm">
       <div className="flex justify-between w-full max-w-screen-xl items-center">
         {/* Logo */}
         <div className="lg:flex filter-none dark:filter invert">
