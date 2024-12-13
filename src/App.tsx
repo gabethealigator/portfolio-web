@@ -29,7 +29,7 @@ function App() {
       <Navbar />
       <div className="h-64"></div>
 
-      <div className="flex flex-col justify-center h-full text-left lg:w-2/6 mx-auto px-7">
+      <div className="flex flex-col justify-center h-full text-left mx-auto px-7 relative lg:w-[30%] md:w-[50%]">
         <div className="flex gap-3">
           <Button variant="outline" size="icon">
             <FiLinkedin/>
