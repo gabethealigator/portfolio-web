@@ -1,8 +1,8 @@
-import path from "path"
-import react from "@vitejs/plugin-react"
-import { defineConfig } from "vite"
-import svgr from 'vite-plugin-svgr';
-import vercel from 'vite-plugin-vercel';
+import path from "path";
+import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
+import svgr from "vite-plugin-svgr";
+import vercel from "vite-plugin-vercel";
 
 export default defineConfig({
   plugins: [react(), svgr(), vercel()],
@@ -11,5 +11,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-})
-
+  assetsInclude: ["**/*.gltf", "**/*.obj", "**/*.mtl"],
+});

@@ -5,12 +5,32 @@ import { Avatar, AvatarImage, AvatarFallback } from "./components/ui/avatar";
 import { FiGithub, FiLinkedin } from "react-icons/fi";
 import { FaPaperPlane } from "react-icons/fa";
 import TextCycle from "./components/ui/text_cicler";
+import { Canvas } from "@react-three/fiber";
+import { Scene } from "./components/ui/model";
+import { Suspense } from "react"
 
 function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <Navbar />
-      <div className="h-64"></div>
+
+      <div style={{ height: '400px', width: '100%' }}>
+        <Canvas
+          shadows
+          orthographic
+          camera={{
+            zoom: 120,
+          }}
+          gl={{
+            antialias: true,
+            alpha: true,
+          }}
+        >
+          <Suspense fallback={null}>
+            <Scene />
+          </Suspense>
+        </Canvas>
+      </div>
 
       <div className="flex flex-col justify-center h-full text-left mx-auto px-7 lg:w-[30%] md:w-[50%]">
         <div className="flex gap-3">
@@ -64,6 +84,7 @@ function App() {
           Habilidades
         </h1>
       </div>
+
     </ThemeProvider>
   );
 }
