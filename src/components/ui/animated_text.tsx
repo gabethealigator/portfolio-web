@@ -1,4 +1,4 @@
-import { motion, useInView, useAnimation, Variant } from "motion/react";
+import { motion, useInView, useAnimation, Variant } from "framer-motion";
 import { useEffect, useRef } from "react";
 
 type AnimatedTextProps = {
@@ -30,7 +30,6 @@ const defaultAnimations = {
 
 export const AnimatedText = ({
   text,
-  el: Wrapper = "p",
   className,
   once,
   repeatDelay,
@@ -64,14 +63,14 @@ export const AnimatedText = ({
   }, [isInView]);
 
   return (
-    <Wrapper className={className}>
-      <span className="sr-only">{text}</span>
+    <motion.div className={className}>
+      <span className="sr-only">{textArray.join(" ")}</span>
       <motion.span
         ref={ref}
         initial="hidden"
         animate={controls}
         variants={{
-          visible: { transition: { staggerChildren: speed } },
+          visible: { transition: { staggerChildren: speed || 0.1 } },
           hidden: {},
         }}
         aria-hidden
@@ -95,6 +94,6 @@ export const AnimatedText = ({
           </span>
         ))}
       </motion.span>
-    </Wrapper>
+    </motion.div>
   );
 };
