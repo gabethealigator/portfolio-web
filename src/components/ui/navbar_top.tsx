@@ -7,22 +7,22 @@ export default function NavbarTop() {
       <div className="flex justify-between w-full max-w-screen-md">
         <nav className="m-auto flex gap-6 items-center">
           <Button variant="link" className="group flex h-9 w-max items-center justify-center px-4 py-2 font-medium transition-all disabled:pointer-events-none disabled:opacity-50 text-lg">
-            Sobre
+              Sobre
           </Button>
 
           <Button variant="link" className="group flex h-9 w-max items-center justify-center px-4 py-2 font-medium transition-all disabled:pointer-events-none disabled:opacity-50 text-lg">
-            Contato
+              Contato
           </Button>
 
           <Button variant="link" className="group flex h-9 w-max items-center justify-center px-4 py-2 font-medium transition-all disabled:pointer-events-none disabled:opacity-50 text-lg">
-            Projetos
+              Projetos
           </Button>
 
           <Button variant="link" className="group flex h-9 w-max items-center justify-center px-4 py-2 font-medium transition-all disabled:pointer-events-none disabled:opacity-50 text-lg">
-            Repositorio
+              Repositorio
           </Button>
 
-          <ThemeToggleButton variant="outline"/>
+          <ThemeToggleButton variant="outline" />
         </nav>
       </div>
     </header>

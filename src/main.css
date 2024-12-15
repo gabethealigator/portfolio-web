@@ -1,3 +1,20 @@
 :root {
   background-color: black;
 }
+
+body {
+  position: relative;
+}
+
+#paperOverlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-repeat: repeat;
+  background-image: url("/textured-paper.png");
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+

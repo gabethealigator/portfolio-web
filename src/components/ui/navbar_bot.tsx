@@ -1,5 +1,6 @@
 import { FiFileText, FiHome, FiMenu, FiUser } from "react-icons/fi";
 import { Button } from "./button";
+import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggleButton from "./theme_button";
 import {
   Drawer,
@@ -18,7 +19,14 @@ export default function NavBarBot() {
         <div className="flex items-center h-full justify-between">
           <nav className="flex items-center">
             <Button variant="ghost" className="h-10 w-10 rounded-full">
-              <FiHome />
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <FiHome />
+                </motion.div>
+              </AnimatePresence>
             </Button>
           </nav>
 
@@ -28,7 +36,14 @@ export default function NavBarBot() {
             <Drawer open={open} onOpenChange={setOpen}>
               <DrawerTrigger asChild>
                 <Button variant="ghost" className="h-10 w-10 rounded-full">
-                  <FiMenu />
+                  <AnimatePresence mode="wait" initial={false}>
+                    <motion.div
+                      whileHover={{ scale: 1.2 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      <FiMenu />
+                    </motion.div>
+                  </AnimatePresence>
                 </Button>
               </DrawerTrigger>
               <DrawerContent>
