@@ -35,7 +35,7 @@ export default function NavbarTop() {
             className="group flex h-9 w-max items-center justify-center px-0 font-medium transition-all disabled:pointer-events-none disabled:opacity-50 text-lg"
             onClick={() => scrollToSection("habilidades")}
           >
-            Habilidades
+            Contato
           </Button>
 
           <Button
