@@ -1,9 +1,9 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
+import React from "react";
 
-const words = ["Inovador", "Solucionador", "Artesão", "Desenvolvedor", "Criador", "Técnico"];
-
-const TextCycle: React.FC<{ className?: string }> = ({ className }) => {
+const TextCycle: React.FC<{ className?: string }> = React.memo(({ className }) => {
+  const words = useMemo(() => ["Inovador", "Solucionador", "Artesão", "Desenvolvedor", "Criador", "Técnico"], []);
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ const TextCycle: React.FC<{ className?: string }> = ({ className }) => {
       </motion.div>
     </AnimatePresence>
   );
-};
+});
 
 export default TextCycle;
 

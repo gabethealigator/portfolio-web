@@ -32,7 +32,7 @@ export function Scene() {
   const { camera } = useThree()
   const controlsRef = useRef<any>()
   const [isAnimating, setIsAnimating] = useState(true)
-  const frameRef = useRef(0)  // Use ref to persist frame count across renders
+  const frameRef = useRef(0)
 
   const initialCameraPosition = new THREE.Vector3(
     20 * Math.sin(0.2 * Math.PI),
