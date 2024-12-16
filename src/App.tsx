@@ -11,11 +11,9 @@ import { Canvas } from "@react-three/fiber";
 import NavBarBot from "./components/ui/navbar_bot";
 import { Scene } from "./components/ui/model";
 import CustomCursor from "./components/ui/cursor";
-import { CursorContextProvider, useCursorContext } from "./lib/cursor_context_provider";
+import { CursorContextProvider } from "./lib/cursor_context_provider";
 
 export default function App() {
-  const { setCursorVariant } = useCursorContext();
-
   return (
     <CursorContextProvider>
       <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
@@ -23,7 +21,7 @@ export default function App() {
         <NavbarTop />
         <NavBarBot />
 
-        <div style={{ height: '400px', width: '100%' }}>
+        <div style={{ height: '400px', width: '100%' }} id="home">
           <Canvas
             shadows
             orthographic
@@ -49,7 +47,7 @@ export default function App() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.3, delay: 0.1 }}
               >
-                <Button variant="outline" size="icon">
+                <Button variant="outline" size="icon" onClick={() => window.open("https://www.linkedin.com/in/gabriel-nunes-6bb365297/")}>
                   <motion.div
                     animate={{ rotate: 0 }}
                     whileHover={{
@@ -73,7 +71,7 @@ export default function App() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.3, delay: 0.1 }}
               >
-                <Button variant="outline" size="icon">
+                <Button variant="outline" size="icon" onClick={() => window.open("https://github.com/gabrielmslima")}>
                   <motion.div
                     animate={{ rotate: 0 }}
                     whileHover={{
@@ -152,7 +150,7 @@ export default function App() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.3, delay: 0.2 }}
           >
-            <p className="border border-muted rounded-sm p-2 w-auto font-medium text-md text-center mb-6 mt-2"
+            <p className="border border-muted rounded-full p-2 w-auto font-medium text-md text-center mb-6 mt-2"
             >
               Olá, sou dev Fullstack e moro em São Paulo.
             </p>
@@ -187,17 +185,17 @@ export default function App() {
           </div>
 
           <div className="text-left">
-            <h1 className="font-[Spectral] text-2xl mt-10 underline underline-offset-[6px] decoration-muted decoration-[6px]">
+            <h1 className="font-[Spectral] text-2xl mt-10 underline underline-offset-[6px] decoration-muted decoration-[6px]" id="sobre">
               Sobre Mim
             </h1>
 
             <p className="text-justify mt-5">
-              Olá! Meu nome é Gabriel Nunes, sou um desenvolvedor Fullstack de São Paulo, apaixonado por tecnologia e inovação. Atualmente, sou formado no curso de Desenvolvimento de Sistemas na ETEC de Sapopemba e já acumulo experiências com diversas ferramentas e linguagens.
+              Olá! Meu nome é Gabriel Nunes, sou um desenvolvedor Fullstack de São Paulo, por sistemas Linux e sistemas embarcados. Atualmente, sou formado no curso de Desenvolvimento de Sistemas na ETEC de Sapopemba e já acumulo experiências com diversas ferramentas e linguagens.
             </p>
           </div>
 
           <div className="text-left">
-            <h1 className="font-[Spectral] text-2xl mt-14 underline underline-offset-[6px] decoration-muted decoration-[6px]">
+            <h1 className="font-[Spectral] text-2xl mt-14 underline underline-offset-[6px] decoration-muted decoration-[6px]" id="habilidades">
               Habilidades
             </h1>
 
@@ -205,6 +203,18 @@ export default function App() {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel augue felis. Integer viverra lectus at tempor malesuada. Sed maximus ipsum lacus, vitae pellentesque nulla interdum sit amet.
             </p>
           </div>
+
+          <div className="text-left">
+            <h1 className="font-[Spectral] text-2xl mt-14 underline underline-offset-[6px] decoration-muted decoration-[6px]" id="projetos">
+              Projetos
+            </h1>
+
+            <p className="text-justify mt-5">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel augue felis. Integer viverra lectus at tempor malesuada. Sed maximus ipsum lacus, vitae pellentesque nulla interdum sit amet.
+            </p>
+          </div>
+
+          <div className="h-20" />
         </div>
       </ThemeProvider>
     </CursorContextProvider>

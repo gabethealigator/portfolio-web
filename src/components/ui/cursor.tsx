@@ -20,7 +20,7 @@ function CustomCursor() {
       mixBlendMode: "difference" as const,
     },
     buttonHover: {
-      scale: 2,
+      scale: 1.5,
       backgroundColor: "white",
       mixBlendMode: "difference" as const,
     },
@@ -82,7 +82,7 @@ function CustomCursor() {
 
   return (
     <motion.div
-      className="cursor fixed left-0 top-0 w-5 h-5 rounded-full z-50 pointer-events-none bg-white mix-blend-difference"
+      className="fixed left-0 top-0 w-5 h-5 rounded-full z-50 pointer-events-none bg-white mix-blend-difference hidden lg:block md:block"
       style={{
         translateX: cursorXSpring,
         translateY: cursorYSpring,
