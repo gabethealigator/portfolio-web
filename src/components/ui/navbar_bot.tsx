@@ -50,19 +50,19 @@ export default function NavBarBot() {
                 <DrawerHeader className="gap-6 p-6">
                   <div className="flex justify-evenly gap-6">
                     <div className="flex flex-col items-center">
-                      <Button variant="ghost" className="h-10 w-10">
+                      <Button variant="ghost" className="h-10 w-10 rounded-full">
                         <FiHome />
                       </Button>
                       <span className="text-xs">Home</span>
                     </div>
                     <div className="flex flex-col items-center">
-                      <Button variant="ghost" className="h-10 w-10">
+                      <Button variant="ghost" className="h-10 w-10 rounded-full">
                         <FiUser />
                       </Button>
                       <span className="text-xs">Sobre</span>
                     </div>
                     <div className="flex flex-col items-center">
-                      <Button variant="ghost" className="h-10 w-10">
+                      <Button variant="ghost" className="h-10 w-10 rounded-full">
                         <FiFileText />
                       </Button>
                       <span className="text-xs">Habilidades</span>
