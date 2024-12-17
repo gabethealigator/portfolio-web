@@ -3,7 +3,7 @@ import {
 } from "@/components/ui/accordion"
 import { FaMicrochip, FaReact } from "react-icons/fa"
 import { Progress } from "@/components/ui/progress"
-import { BiLogoCPlusPlus, BiLogoCss3, BiLogoDjango, BiLogoFirebase, BiLogoFlutter, BiLogoHtml5, BiLogoJavascript, BiLogoPython, BiLogoTux, BiLogoTypescript } from "react-icons/bi";
+import { BiLogoCPlusPlus, BiLogoCss3, BiLogoDjango, BiLogoFirebase, BiLogoFlutter, BiLogoHtml5, BiLogoJavascript, BiLogoPython, BiLogoTypescript } from "react-icons/bi";
 import { TbFileTypeSql } from "react-icons/tb";
 import { GrArchlinux } from "react-icons/gr";
 import { VscRadioTower } from "react-icons/vsc";
