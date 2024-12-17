@@ -10,7 +10,7 @@ import TextCycle from "./components/ui/text_cicler";
 import { Canvas } from "@react-three/fiber";
 import NavBarBot from "./components/ui/navbar_bot";
 import { Scene } from "./components/ui/model";
-import { SkillsAccordion } from "./components/ui/skills_table";
+import { SkillsAccordion } from "./components/ui/skills_accordion";
 
 export default function App() {
   return (
@@ -93,7 +93,7 @@ export default function App() {
               transition={{ duration: 0.3, delay: 0.1 }}
               className="flex lg:hidden"
             >
-              <Button variant="outline" size="icon">
+              <Button variant="outline" size="icon" onClick={() => window.open("https://github.com/gabrielmslima/portfolio-web")}>
                 <motion.div
                   animate={{ rotate: 0 }}
                   whileHover={{

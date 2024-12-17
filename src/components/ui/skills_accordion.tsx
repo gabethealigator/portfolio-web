@@ -4,30 +4,25 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import { BackEndSkills, EmbeddedSkills, FrontEndSkills } from "../skills_progress";
 
 export function SkillsAccordion() {
   return (
-    <Accordion type="single" collapsible className="w-full">
-      <AccordionItem value="item-1">
+    <Accordion type="single" collapsible defaultValue="front-end" className="w-full">
+      <AccordionItem value="front-end">
         <AccordionTrigger className="font-semibold text-md">Front-End</AccordionTrigger>
-        <AccordionContent>
-          Yes. It adheres to the WAI-ARIA design pattern.
-        </AccordionContent>
+        <FrontEndSkills/>
       </AccordionItem>
-      <AccordionItem value="item-2">
+      <AccordionItem value="back-end">
         <AccordionTrigger className="font-semibold text-md" >Back-End</AccordionTrigger>
-        <AccordionContent>
-          Yes. It comes with default styles that matches the other
-          components&apos; aesthetic.
-        </AccordionContent>
+        <BackEndSkills/>
       </AccordionItem>
-      <AccordionItem value="item-3">
+      <AccordionItem value="item-4">
         <AccordionTrigger className="font-semibold text-md" >Embedded</AccordionTrigger>
         <AccordionContent>
-          Yes. It's animated by default, but you can disable it if you prefer.
+          <EmbeddedSkills/>
         </AccordionContent>
       </AccordionItem>
     </Accordion>
   )
 }
-
