@@ -4,7 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
-import { BackEndSkills, EmbeddedSkills, FrontEndSkills } from "../skills_progress";
+import { BackEndSkills, EmbeddedSkills, FrontEndSkills } from "./skills_progress";
 
 export function SkillsAccordion() {
   return (

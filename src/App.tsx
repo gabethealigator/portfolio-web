@@ -11,6 +11,8 @@ import { Canvas } from "@react-three/fiber";
 import NavBarBot from "./components/ui/navbar_bot";
 import { Scene } from "./components/ui/model";
 import { SkillsAccordion } from "./components/ui/skills_accordion";
+import StudyHistory from "./components/ui/study_history";
+import Contact from "./components/ui/contact";
 
 export default function App() {
   return (
@@ -34,13 +36,17 @@ export default function App() {
         </Canvas>
       </div>
 
-      <div className="flex flex-col justify-center h-full text-left mx-auto px-7 max-w-[610px]">
+      <motion.div 
+        className="flex flex-col justify-center h-full text-left mx-auto px-7 max-w-[610px]"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, delay: 0.2 }}
+      >
         <div className="flex justify-between">
           <div className="flex flex-row gap-3">
             <motion.div
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.3, delay: 0.1 }}
             >
@@ -64,7 +70,6 @@ export default function App() {
             <motion.div
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.3, delay: 0.1 }}
             >
@@ -88,7 +93,6 @@ export default function App() {
             <motion.div
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.3, delay: 0.1 }}
               className="flex lg:hidden"
@@ -115,7 +119,6 @@ export default function App() {
             <motion.div
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.3, delay: 0.2 }}
             >
@@ -142,16 +145,13 @@ export default function App() {
           </div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.3, delay: 0.2 }}
+        <div
         >
           <p className="border border-muted rounded-full p-2 w-auto font-medium text-md text-center mb-6 mt-2"
           >
             Olá, sou dev Fullstack e moro em São Paulo.
           </p>
-        </motion.div>
+        </div>
 
         <div className="flex flex-col lg:flex-row">
           <div className="lg:w-2/3 text-left">
@@ -219,16 +219,28 @@ export default function App() {
         </div>
 
         <div className="text-left">
-          <h1 className="font-[Spectral] text-2xl mt-14 underline underline-offset-[6px] decoration-muted decoration-[6px]" id="projetos">
-            Projetos
+          <h1 className="font-[Spectral] text-2xl mt-14 underline underline-offset-[6px] decoration-muted decoration-[6px]" id="historico">
+              Histórico 
           </h1>
 
-          <p className="text-justify mt-5">
+          <p className="text-justify mt-5 mb-10">
+            Minha jornada até hoje.
           </p>
+
+          <StudyHistory />
+        </div>
+
+        <div className="text-left">
+          <h1 className="font-[Spectral] text-2xl mt-14 underline underline-offset-[6px] decoration-muted decoration-[6px]" id="contato">
+            Entre em contato
+          </h1>
+
+          <Contact />
         </div>
 
         <div className="h-20" />
-      </div>
+      </motion.div>
+
     </ThemeProvider >
   );
 }

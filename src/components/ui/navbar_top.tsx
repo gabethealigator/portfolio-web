@@ -41,9 +41,9 @@ export default function NavbarTop() {
           <Button
             variant="link"
             className="group flex h-9 w-max items-center justify-center px-0 font-medium transition-all disabled:pointer-events-none disabled:opacity-50 text-lg"
-            onClick={() => scrollToSection("projetos")}
+            onClick={() => scrollToSection("historico")}
           >
-            Projetos
+            Histórico
           </Button>
 
           <Button
