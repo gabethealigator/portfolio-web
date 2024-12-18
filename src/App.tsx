@@ -12,7 +12,8 @@ import NavBarBot from "./components/ui/navbar_bot";
 import { Scene } from "./components/ui/model";
 import { SkillsAccordion } from "./components/ui/skills_accordion";
 import StudyHistory from "./components/ui/study_history";
-import Contact from "./components/ui/contact";
+import { Contact } from "./components/ui/contact";
+import { Footer } from "./components/ui/footer";
 
 export default function App() {
   return (
@@ -121,6 +122,7 @@ export default function App() {
               whileTap={{ scale: 0.9 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.3, delay: 0.2 }}
+              onClick={() => scrollToSection("contato")} 
             >
               <Button variant="outline">
                 <div className="flex items-center gap-2">
@@ -235,12 +237,23 @@ export default function App() {
             Entre em contato
           </h1>
 
+          <p className="text-justify mt-5 mb-20">
+            Envie um email ou entre em contato pelas redes sociais.
+          </p>
+
           <Contact />
         </div>
-
-        <div className="h-20" />
       </motion.div>
 
+      <Footer />
     </ThemeProvider >
   );
+}
+
+function scrollToSection(sectionId: string) {
+  const section = document.getElementById(sectionId);
+
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
 }
