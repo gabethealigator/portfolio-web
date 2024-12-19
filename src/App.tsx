@@ -14,7 +14,6 @@ import { SkillsAccordion } from "./components/ui/skills_accordion";
 import StudyHistory from "./components/ui/study_history";
 import { Contact } from "./components/ui/contact";
 import { Footer } from "./components/ui/footer";
-import { useState, useEffect } from "react";
 
 export default function App() {
   return (
