@@ -76,3 +76,15 @@
 html {
   transition: background-color 0.5s, color 0.5s;
 }
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/80 to-primary;
+  animation: gradient 8s ease infinite;
+  background-size: 200% auto;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: 0% center; }
+}
