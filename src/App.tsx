@@ -335,26 +335,3 @@ function scrollToSection(sectionId: string) {
     section.scrollIntoView({ behavior: 'smooth' });
   }
 }
-
-function ScrollProgress() {
-  const [scroll, setScroll] = useState(0);
-
-  useEffect(() => {
-    const updateScroll = () => {
-      const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
-      const currentScroll = window.scrollY;
-      const progress = (currentScroll / totalScroll) * 100;
-      setScroll(progress);
-    };
-
-    window.addEventListener('scroll', updateScroll);
-    return () => window.removeEventListener('scroll', updateScroll);
-  }, []);
-
-  return (
-    <motion.div 
-      className="fixed top-0 left-0 h-1 bg-primary z-50"
-      style={{ width: `${scroll}%` }}
-    />
-  );
-}

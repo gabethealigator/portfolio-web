@@ -53,7 +53,7 @@ export default function StudyHistory() {
     )
   }
   
-  function BriefcaseIcon(props) {
+  function BriefcaseIcon(props: React.SVGProps<SVGSVGElement>) {
     return (
       <svg
         {...props}
