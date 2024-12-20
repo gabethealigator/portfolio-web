@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import NavbarTop from "./components/ui/navbar_top";
 import { ThemeProvider } from "./lib/theme_provider";
 import { Avatar, AvatarImage, AvatarFallback } from "./components/ui/avatar";
-import { FiDownload, FiGithub, FiLinkedin, FiArrowUp } from "react-icons/fi";
+import { FiDownload, FiGithub, FiLinkedin } from "react-icons/fi";
 import { FaPaperPlane } from "react-icons/fa";
 import TextCycle from "./components/ui/text_cicler";
 import { Canvas } from "@react-three/fiber";
@@ -37,7 +37,7 @@ export default function App() {
         </Canvas>
       </div>
 
-      <motion.div 
+      <motion.div
         className="flex flex-col justify-center h-full text-left mx-auto px-7 max-w-[610px]"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -131,7 +131,7 @@ export default function App() {
                 whileTap={{ scale: 0.9 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.3, delay: 0.2 }}
-                onClick={() => scrollToSection("contato")} 
+                onClick={() => scrollToSection("contato")}
               >
                 <Button variant="outline">
                   <div className="flex items-center gap-2">
@@ -225,8 +225,8 @@ export default function App() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <div className="text-left">
-            <motion.h1 
-              className="font-[Spectral] text-2xl mt-14 underline underline-offset-[6px] decoration-muted decoration-[6px]" 
+            <motion.h1
+              className="font-[Spectral] text-2xl mt-14 underline underline-offset-[6px] decoration-muted decoration-[6px]"
               id="habilidades"
               whileInView={{ x: [50, 0], opacity: [0, 1] }}
               transition={{ duration: 0.5 }}
@@ -234,7 +234,7 @@ export default function App() {
               Habilidades
             </motion.h1>
 
-            <motion.p 
+            <motion.p
               className="text-justify mt-5 mb-10"
               whileInView={{ x: [30, 0], opacity: [0, 1] }}
               transition={{ duration: 0.5, delay: 0.1 }}
@@ -259,8 +259,8 @@ export default function App() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <div className="text-left">
-            <motion.h1 
-              className="font-[Spectral] text-2xl mt-14 underline underline-offset-[6px] decoration-muted decoration-[6px]" 
+            <motion.h1
+              className="font-[Spectral] text-2xl mt-14 underline underline-offset-[6px] decoration-muted decoration-[6px]"
               id="historico"
               whileInView={{ x: [50, 0], opacity: [0, 1] }}
               transition={{ duration: 0.5 }}
@@ -268,7 +268,7 @@ export default function App() {
               Histórico
             </motion.h1>
 
-            <motion.p 
+            <motion.p
               className="text-justify mt-5 mb-10"
               whileInView={{ x: [30, 0], opacity: [0, 1] }}
               transition={{ duration: 0.5, delay: 0.1 }}
@@ -293,8 +293,8 @@ export default function App() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <div className="text-left">
-            <motion.h1 
-              className="font-[Spectral] text-2xl mt-14 underline underline-offset-[6px] decoration-muted decoration-[6px]" 
+            <motion.h1
+              className="font-[Spectral] text-2xl mt-14 underline underline-offset-[6px] decoration-muted decoration-[6px]"
               id="contato"
               whileInView={{ x: [50, 0], opacity: [0, 1] }}
               transition={{ duration: 0.5 }}
@@ -302,7 +302,7 @@ export default function App() {
               Entre em contato
             </motion.h1>
 
-            <motion.p 
+            <motion.p
               className="text-justify mt-5 mb-20"
               whileInView={{ x: [30, 0], opacity: [0, 1] }}
               transition={{ duration: 0.5, delay: 0.1 }}
