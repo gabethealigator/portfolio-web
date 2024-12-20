@@ -17,3 +17,9 @@ body {
   mix-blend-mode: multiply;
   pointer-events: none;
 }
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import NavbarTop from "./components/ui/navbar_top";
 import { ThemeProvider } from "./lib/theme_provider";
 import { Avatar, AvatarImage, AvatarFallback } from "./components/ui/avatar";
-import { FiDownload, FiGithub, FiLinkedin } from "react-icons/fi";
+import { FiDownload, FiGithub, FiLinkedin, FiArrowUp } from "react-icons/fi";
 import { FaPaperPlane } from "react-icons/fa";
 import TextCycle from "./components/ui/text_cicler";
 import { Canvas } from "@react-three/fiber";
@@ -105,7 +105,7 @@ export default function App() {
                 whileTap={{ scale: 0.9 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.3, delay: 0.1 }}
-                className="flex lg:hidden"
+                className="flex"
               >
                 <Button variant="outline" size="icon" onClick={() => window.open("https://github.com/gabrielmslima/portfolio-web")}>
                   <motion.div
@@ -331,6 +331,6 @@ function scrollToSection(sectionId: string) {
   const section = document.getElementById(sectionId);
 
   if (section) {
-    section.scrollIntoView({ behavior: 'smooth' });
+    window.location.href = `#${sectionId}`;
   }
 }

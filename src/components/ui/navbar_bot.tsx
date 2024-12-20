@@ -1,4 +1,5 @@
 import { FiFileText, FiHome, FiMenu, FiUser } from "react-icons/fi";
+import { PiLego } from "react-icons/pi";
 import { Button } from "./button";
 import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggleButton from "./theme_button";
@@ -54,36 +55,6 @@ export default function NavBarBot() {
                 <DrawerHeader className="gap-6 p-6">
                   <DrawerClose type="reset">
                     <div className="flex justify-evenly gap-6">
-                      <div className="flex flex-col items-center mb-10">
-                        <Button
-                          variant="ghost" className="h-10 w-10 rounded-full"
-                          onClick={() => scrollToSection("home")}
-                        >
-                          <FiHome />
-                        </Button>
-                        <span className="text-xs">Home</span>
-                      </div>
-                      <div className="flex flex-col items-center">
-                        <Button 
-                          variant="ghost" className="h-10 w-10 rounded-full"
-                          onClick={() => scrollToSection("sobre")}
-                        >
-                          <FiUser />
-                        </Button>
-                        <span className="text-xs">Sobre</span>
-                      </div>
-                      <div className="flex flex-col items-center">
-                        <Button 
-                          variant="ghost" className="h-10 w-10 rounded-full"
-                          onClick={() => scrollToSection("habilidades")}
-                        >
-                          <FiFileText />
-                        </Button>
-                        <span className="text-xs">Habilidades</span>
-                      </div>
-                    </div>
-
-                    <div className="flex justify-evenly gap-6">
                       <div className="flex flex-col items-center">
                         <Button
                           variant="ghost" className="h-10 w-10 rounded-full"
@@ -110,6 +81,15 @@ export default function NavBarBot() {
                           <FiFileText />
                         </Button>
                         <span className="text-xs">Habilidades</span>
+                      </div>
+                      <div className="flex flex-col items-center">
+                        <Button 
+                          variant="ghost" className="h-10 w-10 rounded-full"
+                          onClick={() => scrollToSection("habilidades")}
+                        >
+                          <PiLego />
+                        </Button>
+                        <span className="text-xs">Projetos</span>
                       </div>
                     </div>
                   </DrawerClose>
@@ -127,6 +107,6 @@ function scrollToSection(sectionId: string) {
   const section = document.getElementById(sectionId);
 
   if (section) {
-    section.scrollIntoView({ behavior: 'smooth' });
+    window.location.href = `#${sectionId}`;
   }
 }

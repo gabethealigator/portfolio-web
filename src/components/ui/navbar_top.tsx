@@ -49,9 +49,8 @@ export default function NavbarTop() {
           <Button
             variant="link"
             className="grouVjp flex h-9 w-max items-center justify-center px-0 font-medium transition-all disabled:pointer-events-none disabled:opacity-50 text-lg"
-            onClick={() => window.open("https://github.com/gabrielmslima/portfolio-web")}
           >
-            Repositorio
+            Projetos
           </Button>
 
           <ThemeToggleButton variant="ghost" />
@@ -65,6 +64,6 @@ function scrollToSection(sectionId: string) {
   const section = document.getElementById(sectionId);
 
   if (section) {
-    section.scrollIntoView({ behavior: 'smooth' });
+    window.location.href = `#${sectionId}`;
   }
 }

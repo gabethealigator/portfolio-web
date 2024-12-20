@@ -1,48 +1,64 @@
-"use client"
-
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { motion } from "framer-motion";
-
+import emailjs from '@emailjs/browser';
 import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormMessage,
+    Form,
+    FormControl,
+    FormDescription,
+    FormField,
+    FormItem,
+    FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
+import { FiArrowRight } from "react-icons/fi";
+import { useRef } from "react";
 
 const formSchema = z.object({
-    name: z.string().min(2, { message: "O nome deve ter pelo menos 2 caracteres." }),
-    email: z.string().email({ message: "O email deve ser válido." }),
-    message: z.string().min(10, { message: "A mensagem deve ter pelo menos 10 caracteres." }),
+    from_name: z.string().min(3, { message: "O nome deve ter pelo menos 3 caracteres." }).max(50, { message: "O nome deve ter no máximo 50 caracteres." }),
+    user_email: z.string().email({ message: "O email deve ser válido." }),
+    message: z.string().min(10, { message: "A mensagem deve ter pelo menos 10 caracteres." }).max(500, { message: "A mensagem deve ter no máximo 500 caracteres." })
 })
 
 export function Contact() {
-    const form = useForm<z.infer<typeof formSchema>>({
+    const form = useForm({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            name: "",
-            email: "",
-            message: "",
-        },
+            from_name: '',
+            user_email: '',
+            message: ''
+        }
     })
 
-    function onSubmit(values: z.infer<typeof formSchema>) {
-        console.log(values)
+    const formRef = useRef<HTMLFormElement | null>(null)
+
+    const onSubmit = () => {
+        if (formRef.current) {
+            emailjs.sendForm(
+                import.meta.env.VITE_SERVICE_ID,
+                import.meta.env.VITE_TEMPLATE_ID,
+                formRef.current,
+                import.meta.env.VITE_PUBLIC_KEY
+            )
+                .then(() => {
+                    form.reset();
+                },
+                    (error) => {
+                        console.warn("FAILED TO SEND EMAIL", JSON.stringify(error));
+                    }
+                )
+        }
     }
 
     return (
         <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 rounded-lg blur-xl" />
-            
+
             <div className="relative p-8 rounded-lg mt-10 bg-background/80 backdrop-blur-sm border border-primary/20">
-                <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-6 py-2 rounded-full">
+                <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-6 py-2 rounded-full text-nowrap">
                     <h2 className="text-lg font-semibold">Vamos Conversar!</h2>
                 </div>
 
@@ -51,21 +67,22 @@ export function Contact() {
                 </div>
 
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                    <form ref={formRef} onSubmit={form.handleSubmit(onSubmit)} className="space-y-6" id="contact-form">
                         <div className="grid gap-6 md:grid-cols-2">
                             <FormField
                                 control={form.control}
-                                name="name"
+                                name="from_name"
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormDescription className="ml-1 font-medium">
-                                            Nome    
+                                            Nome
                                         </FormDescription>
                                         <FormControl>
-                                            <Input 
-                                                placeholder="Seu Nome" 
-                                                {...field} 
+                                            <Input
+                                                placeholder="Seu Nome"
+                                                {...field}
                                                 className="bg-muted/50 border-primary/20 focus-visible:ring-offset-2"
+                                                id="user_name"
                                             />
                                         </FormControl>
                                         <FormMessage />
@@ -74,18 +91,19 @@ export function Contact() {
                             />
 
                             <FormField
-                                control={form.control}
-                                name="email"
+                                name="user_email"
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormDescription className="ml-1 font-medium">
                                             Email
                                         </FormDescription>
                                         <FormControl>
-                                            <Input 
-                                                placeholder="seuemail@gmail.com" 
-                                                {...field} 
+                                            <Input
+                                                placeholder="seuemail@gmail.com"
+                                                {...field}
                                                 className="bg-muted/50 border-primary/20 focus-visible:ring-offset-2"
+                                                id="user_email"
+                                                type="email"
                                             />
                                         </FormControl>
                                         <FormMessage />
@@ -95,7 +113,6 @@ export function Contact() {
                         </div>
 
                         <FormField
-                            control={form.control}
                             name="message"
                             render={({ field }) => (
                                 <FormItem>
@@ -103,10 +120,11 @@ export function Contact() {
                                         Mensagem
                                     </FormDescription>
                                     <FormControl>
-                                        <Textarea 
-                                            className="h-40 bg-muted/50 border-primary/20 focus-visible:ring-offset-2" 
-                                            placeholder="Sua mensagem" 
-                                            {...field} 
+                                        <Textarea
+                                            className="h-40 bg-muted/50 border-primary/20 focus-visible:ring-offset-2"
+                                            placeholder="Sua mensagem"
+                                            {...field}
+                                            id="message"
                                         />
                                     </FormControl>
                                     <FormMessage />
@@ -114,13 +132,11 @@ export function Contact() {
                             )}
                         />
 
-                        <Button 
+                        <Button
                             type="submit"
                             className="w-full bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300"
-                            onClick={() => form.handleSubmit(onSubmit)}
                         >
                             <span className="flex items-center gap-2">
-                                Enviar Mensagem
                                 <motion.div
                                     animate={{ x: [0, 5, 0] }}
                                     transition={{
@@ -129,7 +145,7 @@ export function Contact() {
                                         ease: "easeInOut"
                                     }}
                                 >
-                                    →
+                                    <FiArrowRight />
                                 </motion.div>
                             </span>
                         </Button>
