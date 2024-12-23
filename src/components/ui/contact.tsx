@@ -15,7 +15,16 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { FiArrowRight } from "react-icons/fi";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import {
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogAction,
+    AlertDialogTitle,
+    AlertDialog
+} from "@/components/ui/alert-dialog";
 
 const formSchema = z.object({
     from_name: z.string().min(3, { message: "O nome deve ter pelo menos 3 caracteres." }).max(50, { message: "O nome deve ter no máximo 50 caracteres." }),
@@ -24,6 +33,8 @@ const formSchema = z.object({
 })
 
 export function Contact() {
+    const [isDialogOpen, setIsDialogOpen] = useState(false);
+    const [isAlertDialogOpen, setIsAlertDialogOpen] = useState(false);
     const form = useForm({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -45,9 +56,11 @@ export function Contact() {
             )
                 .then(() => {
                     form.reset();
+                    setIsDialogOpen(true)
                 },
                     (error) => {
                         console.warn("FAILED TO SEND EMAIL", JSON.stringify(error));
+                        setIsAlertDialogOpen(true)
                     }
                 )
         }
@@ -145,7 +158,7 @@ export function Contact() {
                                         ease: "easeInOut"
                                     }}
                                 >
-                                    <FiArrowRight />
+                                    enviar <FiArrowRight />
                                 </motion.div>
                             </span>
                         </Button>
@@ -166,6 +179,43 @@ export function Contact() {
                     </div>
                 </div>
             </div>
+
+            {isDialogOpen && (
+                <AlertDialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                    <AlertDialogContent>
+                        <AlertDialogHeader>
+                            <AlertDialogTitle>Seu email foi enviado!</AlertDialogTitle>
+                            <AlertDialogDescription>
+                                Obrigado pelo contato! Você pode fechar esta notificação agora.
+                            </AlertDialogDescription>
+                        </AlertDialogHeader>
+                        <AlertDialogFooter>
+                            <AlertDialogAction onClick={() => setIsDialogOpen(false)}>
+                                Fechar
+                            </AlertDialogAction>
+                        </AlertDialogFooter>
+                    </AlertDialogContent>
+                </AlertDialog>
+            )}
+
+            {isAlertDialogOpen && (
+                <AlertDialog open={isAlertDialogOpen} onOpenChange={setIsAlertDialogOpen}>
+                    <AlertDialogContent>
+                        <AlertDialogHeader>
+                            <AlertDialogTitle>Erro ao enviar o email</AlertDialogTitle>
+                            <AlertDialogDescription>
+                                Ocorreu um problema ao enviar seu email. Tente novamente mais tarde.
+                            </AlertDialogDescription>
+                        </AlertDialogHeader>
+                        <AlertDialogFooter>
+                            <AlertDialogAction onClick={() => setIsAlertDialogOpen(false)}>
+                                Fechar
+                            </AlertDialogAction>
+                        </AlertDialogFooter>
+                    </AlertDialogContent>
+                </AlertDialog>
+            )}
         </div>
+
     )
 }
