@@ -1,50 +1,72 @@
-# React + TypeScript + Vite
+# Portfólio Web
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é um projeto de portfólio pessoal desenvolvido com React, TypeScript e Vite, utilizando tecnologias modernas para criar uma experiência interativa e responsiva.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologias
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este projeto foi construído com as seguintes tecnologias:
 
-## Expanding the ESLint configuration
+- [React](https://react.dev/) - Biblioteca JavaScript para construção de interfaces
+- [TypeScript](https://www.typescriptlang.org/) - Superset tipado de JavaScript
+- [Vite](https://vitejs.dev/) - Build tool e servidor de desenvolvimento
+- [Tailwind CSS](https://tailwindcss.com/) - Framework CSS utilitário
+- [Framer Motion](https://www.framer.com/motion/) - Biblioteca para animações
+- [Three.js](https://threejs.org/) - Biblioteca para gráficos 3D
+- [React Three Fiber](https://docs.pmnd.rs/react-three-fiber/) - Renderizador React para Three.js
+- [Radix UI](https://www.radix-ui.com/) - Componentes de UI acessíveis e sem estilo
+- [EmailJS](https://www.emailjs.com/) - Serviço para envio de emails
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 📋 Pré-requisitos
 
-- Configure the top-level `parserOptions` property like this:
+Antes de começar, você precisará ter instalado em sua máquina:
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/) ou [Bun](https://bun.sh/)
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🔧 Instalação
+
+```bash
+# Clone este repositório
+git clone [url-do-repositorio]
+
+# Entre na pasta do projeto
+cd portfolio-web
+
+# Instale as dependências
+npm install
+# ou
+bun install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## ⚙️ Executando o projeto
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+```bash
+# Modo de desenvolvimento
+npm run dev
+# ou
+bun dev
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+# Construir para produção
+npm run build
+# ou
+bun build
+
+# Visualizar versão de produção
+npm run preview
+# ou
+bun preview
 ```
+
+## 📝 Estrutura do Projeto
+
+- `/src` - Código fonte do projeto
+  - `/components` - Componentes React reutilizáveis
+  - `/lib` - Utilitários e configurações
+- `/public` - Arquivos estáticos
+
+## 🤝 Contribuições
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
+
+## 📬 Contato
+
+Para mais informações, entre em contato através do formulário no site ou pelas redes sociais listadas no portfólio.
